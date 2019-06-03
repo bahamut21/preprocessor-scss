@@ -1,0 +1,36 @@
+h1{
+    color: green;
+    text-align: center;
+}
+
+@mixin myRing ($x, $y, $color) {
+    height : $x;
+    width : $x;
+    border: $y solid $color;
+    border-radius: 50%;
+    box-shadow : 4px 5px 5px $color;
+} 
+
+@for $i from 1 through 6 {
+    .ring#{$i} {
+        @include myRing(50px*$i, 6px+$i, grey);
+        margin-left: -10px*$i;
+    }
+}
+
+
+@for $i from 7 through 8 {
+    .ring#{$i} {
+        @include myRing(50px, 6px, orangered);
+    }
+}
+
+.ring9{
+    @include myRing(100px, 6px, yellow);
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
